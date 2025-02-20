@@ -18,7 +18,7 @@ function JobDetails() {
           throw new Error("Failed to fetch jobs");
         }
         const data = await response.json();
-        setJobs(data.slice(0, 6)); // Display only 6 jobs
+        setJobs(data.slice(0, 6)); // Display only 6 jobs    
       } catch (err) {
         setError(err.message);
       } finally {
@@ -28,6 +28,11 @@ function JobDetails() {
 
     fetchJobs();
   }, []);
+// decoding mongodb _id to time
+  const decodeMongoIdToTime = (mongoId) => {
+    const timestamp = parseInt(mongoId.substring(0, 8), 16); // Convert first 4 bytes (8 hex chars) to decimal
+    return new Date(timestamp * 1000).toLocaleString(); // Convert to readable date
+  };
 
   if (loading) return <p className="text-center text-gray-600">Loading jobs...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
@@ -59,7 +64,7 @@ function JobDetails() {
               {/* Left Section */}
               <div className="w-full sm:w-auto">
                 <span className="bg-green-100 text-green-600 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
-                  10 min ago
+                 {decodeMongoIdToTime(job._id)}
                 </span>
                 <h3 className="text-lg sm:text-xl font-semibold mt-2">{job.jobTitle}</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
