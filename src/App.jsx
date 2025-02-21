@@ -1,14 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Jobs from "./pages/Jobs";
+import Jobs from "./components/Jobs";
 import JobDetails from "./pages/JobDetails";
-import Category from "./pages/Category";
 import Footer from "./components/Footer";
-import Page from "./pages/Page";
-import Review from "./pages/Review";
-import News from "./pages/News";
-
+import Form from './components/Form'
 
 
 function App() {
@@ -19,12 +15,8 @@ function App() {
         <Route path="/" element={<HomePage/>} />
         <Route path="/jobs" element={<Jobs/>} />
         <Route path="/jobdetails/:id" element={<JobDetails/>} />
+        <Route path="/postjob" element={<Form/>} />
     </Routes>
-    <Jobs/>
-    <Category/>
-    <Page/>
-    <Review/>
-    <News/>
     <Footer/>
     </div>
   );

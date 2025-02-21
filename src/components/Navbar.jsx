@@ -1,8 +1,9 @@
-import { Link , useLocation } from 'react-router-dom';
+import { Link , useLocation, useNavigate } from 'react-router-dom';
 import {assets} from '../assets/assets'
 
 function Navbar() {
   const location = useLocation()
+  const navigate = useNavigate()
   return (
     <div className="flex bg-black justify-between text-white px-10 md-max:px-5 py-4">
       <div className='flex items-center'>
@@ -27,7 +28,7 @@ function Navbar() {
       </div>
       <div className='flex items-center'>
         <button>Login</button>
-        <button className='bg-[#309689] px-4 py-2 rounded-lg ml-3'>Register</button>
+        <button className='bg-[#309689] px-4 py-2 rounded-lg ml-3' onClick={() => navigate('/postjob')} >Register</button>
       </div>
     </div>
   );

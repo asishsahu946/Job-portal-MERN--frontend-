@@ -18,6 +18,7 @@ function JobDetails() {
           throw new Error("Failed to fetch jobs");
         }
         const data = await response.json();
+        console.log(data)
         setJobs(data.slice(0, 6)); // Display only 6 jobs    
       } catch (err) {
         setError(err.message);
