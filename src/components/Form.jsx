@@ -101,6 +101,14 @@ export default function Form() {
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Post a Job</h2>
       <form onSubmit={handleSubmit}>
+      <input
+          name="jobTitle"
+          value={formData.jobTitle}
+          onChange={handleChange}
+          placeholder="Job Title"
+          className="w-full p-2 border mb-2"
+          required
+        />
         <input
           name="companyName"
           value={formData.companyName}
@@ -119,14 +127,6 @@ export default function Form() {
           required
         />
         <input
-          name="jobTitle"
-          value={formData.jobTitle}
-          onChange={handleChange}
-          placeholder="Job Title"
-          className="w-full p-2 border mb-2"
-          required
-        />
-        <input
           name="category"
           value={formData.category}
           onChange={handleChange}
@@ -134,14 +134,18 @@ export default function Form() {
           className="w-full p-2 border mb-2"
           required
         />
-        <input
+        <select
           name="jobType"
           value={formData.jobType}
           onChange={handleChange}
           placeholder="Job Type"
           className="w-full p-2 border mb-2"
           required
-        />
+        >
+          <option value="Full Time">Full Time</option>
+          <option value="Part Time">Part Time</option>
+          <option value="Internship">Internship</option>
+        </select>
         <input
           name="salary"
           value={formData.salary}
