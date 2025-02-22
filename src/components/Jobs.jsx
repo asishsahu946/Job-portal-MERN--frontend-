@@ -13,7 +13,7 @@ function JobDetails() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("https://job-portal-mern-backend-y0p7.onrender.com/getjobs");
+        const response = await fetch("https://jobportalmernbackend.vercel.app/getjobs");
         if (!response.ok) {
           throw new Error("Failed to fetch jobs");
         }
