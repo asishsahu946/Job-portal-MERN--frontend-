@@ -63,7 +63,7 @@ export default function Form() {
             jobType: formData.jobType,
             salary: formData.salary,
             formattedAddress: formData.formattedAddress,
-            skills: formData.skills.filter((skill) => skill.trim() !== ""), // Filter out empty skills
+            skills: formData.skills.filter((skill) => skill.trim() !== ""), // Remove empty skills
             description: formData.description,
             experience: formData.experience,
             degree: formData.degree,
@@ -82,7 +82,7 @@ export default function Form() {
           jobType: "",
           salary: "",
           formattedAddress: "",
-          skills: [""], // Reset skills array
+          skills: [""],
           description: "",
           experience: "",
           degree: "",

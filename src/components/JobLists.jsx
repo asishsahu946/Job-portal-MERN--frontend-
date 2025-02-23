@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaBriefcase, FaClock, FaDollarSign, FaMapMarkerAlt, FaBookmark } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // For navigation
 
-function JobDetails() {
+function JobLists() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -106,4 +106,4 @@ function JobDetails() {
   );
 }
 
-export default JobDetails;
+export default JobLists;

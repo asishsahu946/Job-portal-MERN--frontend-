@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import Jobs from '../components/Jobs'
+import JobLists from '../components/JobLists'
 import Category from "../components/Category";
 import Page from "../components/Page";
 import Review from "../components/Review";
@@ -10,7 +10,7 @@ function HomePage() {
   return (
     <div>
       <HeroSection />
-      <Jobs />
+      <JobLists />
       <Category />
       <Page />
       <Review />

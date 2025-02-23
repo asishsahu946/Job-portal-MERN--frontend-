@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Jobs from "./components/Jobs";
+import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
 import Footer from "./components/Footer";
 import Form from './components/Form'

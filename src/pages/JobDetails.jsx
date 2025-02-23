@@ -2,7 +2,9 @@ import React from 'react'
 
 function JobDetails() {
   return (
-    <div>JobDetails</div>
+    <div>
+        <h1>JobDetails</h1>
+      </div>
   )
 }
 
