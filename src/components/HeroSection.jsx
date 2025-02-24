@@ -1,4 +1,6 @@
 import React from "react";
+import { FaBriefcase, FaUser, FaBuilding } from 'react-icons/fa';
+
 
 const HeroSection = () => {
   return (
@@ -43,7 +45,7 @@ const HeroSection = () => {
           <div className="mt-16 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12">
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-[#31c4ae] text-white rounded-full">
-                <i className="fas fa-briefcase text-xs sm:text-lg"></i>
+                <FaBriefcase className="text-xs sm:text-lg" />
               </div>
               <div>
                 <h2 className="text-lg font-bold sm:text-3xl">25,850</h2>
@@ -53,7 +55,7 @@ const HeroSection = () => {
 
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-[#31c4ae] text-white rounded-full">
-                <i className="fas fa-user text-xs sm:text-lg"></i>
+                <FaUser className="text-xs sm:text-lg" />
               </div>
               <div>
                 <h2 className="text-lg font-bold sm:text-3xl">10,250</h2>
@@ -63,7 +65,7 @@ const HeroSection = () => {
 
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-[#31c4ae] text-white rounded-full">
-                <i className="fas fa-building text-xs sm:text-lg"></i>
+                <FaBuilding className="text-xs sm:text-lg" />
               </div>
               <div>
                 <h2 className="text-lg font-bold sm:text-3xl">18,400</h2>
@@ -71,6 +73,9 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+
+
+
 
         </div>
       </div>

@@ -1,5 +1,7 @@
 import React from 'react'
 import JobFilter from '../components/JobFilter'
+import Top from '../components/Top'
+
 
 function Jobs() {
   return (
@@ -8,6 +10,7 @@ function Jobs() {
         <h1 className='text-3xl font-bold'>Jobs</h1>
       </div>
      <JobFilter/>
+     <Top/>
     </div>
   )
 }

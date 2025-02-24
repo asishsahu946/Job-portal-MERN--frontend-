@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaBriefcase, FaClock, FaDollarSign, FaMapMarkerAlt, FaBookmark } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // For navigation
 
-function JobLists() {
+function Job() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +16,7 @@ function JobLists() {
           throw new Error("Failed to fetch jobs");
         }
         const data = await response.json();
-        console.log(data)
-        setJobs(data.slice(0, 6)); // Display only 6 jobs    
+        setJobs(data); // Display all jobs   
       } catch (err) {
         setError(err.message);
       } finally {
@@ -27,7 +26,8 @@ function JobLists() {
 
     fetchJobs();
   }, []);
-// decoding mongodb _id to time
+
+  // Decoding MongoDB _id to timestamp
   const decodeMongoIdToTime = (mongoId) => {
     const timestamp = parseInt(mongoId.substring(0, 8), 16); // Convert first 4 bytes (8 hex chars) to decimal
     return new Date(timestamp * 1000).toLocaleString(); // Convert to readable date
@@ -54,23 +54,22 @@ function JobLists() {
       {jobs.length === 0 ? (
         <p className="text-center text-gray-500">No jobs available</p>
       ) : (
-        <div className="grid gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.map((job) => (
             <div
               key={job._id}
-              className="p-4 sm:p-6 border rounded-lg shadow-lg bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center"
+              className="p-4 sm:p-6 border rounded-lg shadow-lg bg-white flex flex-col"
             >
-              {/* Left Section */}
-              <div className="w-full sm:w-auto">
+              {/* Job Details */}
+              <div className="flex flex-col">
                 <span className="bg-green-100 text-green-600 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
-                 {decodeMongoIdToTime(job._id)}
+                  {decodeMongoIdToTime(job._id)}
                 </span>
                 <h3 className="text-lg sm:text-xl font-semibold mt-2">{job.jobTitle}</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   {job.company?.companyName || "Unknown Company"}
                 </p>
 
-                {/* Job Details */}
                 <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-gray-500 text-xs sm:text-sm">
                   <span className="flex items-center gap-1">
                     <FaBriefcase /> {job.category || "Unknown"}
@@ -87,8 +86,8 @@ function JobLists() {
                 </div>
               </div>
 
-              {/* Right Section */}
-              <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-0">
+              {/* Buttons */}
+              <div className="flex justify-between items-center mt-3">
                 <button className="px-3 sm:px-4 py-1 sm:py-2 bg-teal-600 text-white rounded-md text-sm sm:text-base">
                   Job Details
                 </button>
@@ -104,4 +103,4 @@ function JobLists() {
   );
 }
 
-export default JobLists;
+export default Job;
