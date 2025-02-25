@@ -16,6 +16,7 @@ function JobFilter() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate(); // Navigation hook
+  
 
   useEffect(() => {
     const fetchJobs = async () => {

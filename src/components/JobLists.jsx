@@ -89,7 +89,7 @@ function JobLists() {
 
               {/* Right Section */}
               <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-0">
-                <button className="px-3 sm:px-4 py-1 sm:py-2 bg-teal-600 text-white rounded-md text-sm sm:text-base">
+                <button className="px-3 sm:px-4 py-1 sm:py-2 bg-teal-600 text-white rounded-md text-sm sm:text-base" onClick={() => navigate(`/jobdetails/${job._id}`)}>
                   Job Details
                 </button>
                 <button className="text-gray-500 hover:text-gray-700 text-sm sm:text-base">
