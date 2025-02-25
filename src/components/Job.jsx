@@ -9,6 +9,7 @@ function Job() {
   const navigate = useNavigate(); // Navigation hook
 
   useEffect(() => {
+
     const fetchJobs = async () => {
       try {
         const response = await fetch("https://jobportalmernbackend.vercel.app/getjobs");
