@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { User, FileText, Briefcase, CheckCircle, Plus, X  } from "lucide-react"
+import {assets} from '../assets/assets'
 
 function AboutUs() {
   const [openItem, setOpenItem] = useState(0)
@@ -60,7 +61,7 @@ function AboutUs() {
       </div>
       <div className="rounded-2xl overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          src={assets.AboutImage}
           alt="Featured image"
           width={1200}
           height={600}

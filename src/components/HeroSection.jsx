@@ -5,7 +5,7 @@ import { FaBriefcase, FaUser, FaBuilding } from 'react-icons/fa';
 const HeroSection = () => {
   return (
     <>
-      <div className="bg-[#111827] text-white py-20 h-[85vh]">
+      <div className="bg-[#111827] text-white py-20 h-[50vh]">
 
         <div className="text-center mt-16 px-6">
           <h1 className="text-4xl md:text-6xl font-bold">

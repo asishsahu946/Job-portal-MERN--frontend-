@@ -53,7 +53,7 @@ function JobLists() {
         </h2>
         <p
           className="text-teal-600 underline cursor-pointer text-sm sm:text-base mt-2 sm:mt-0"
-          onClick={() => navigate("/all-jobs")} // Navigate on click
+          onClick={() => navigate("/jobs")} // Navigate on click
         >
           View All
         </p>

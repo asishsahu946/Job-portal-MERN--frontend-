@@ -138,7 +138,7 @@ function Register() {
             type="submit"
             color="gray"
             size="lg"
-            className="mt-6"
+            className="mt-6 bg-[#309689]"
             fullWidth
           >
             Register

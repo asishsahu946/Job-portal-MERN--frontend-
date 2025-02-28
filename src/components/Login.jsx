@@ -99,10 +99,10 @@ export function Login() {
           <h1 className="text-red-500">{credentials}</h1>
           <Button
             type="submit"
-            color="gray"
             size="lg"
-            className="mt-6"
+            className="mt-6 bg-[#309689]"
             fullWidth
+
           >
             Sign In
           </Button>
