@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaBriefcase, FaClock, FaDollarSign, FaMapMarkerAlt, FaBookmark } from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaClock,
+  FaDollarSign,
+  FaMapMarkerAlt,
+  FaBookmark,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // For navigation
 
 function Job() {
@@ -9,15 +15,14 @@ function Job() {
   const navigate = useNavigate(); // Navigation hook
 
   useEffect(() => {
-
     const fetchJobs = async () => {
       try {
-        const response = await fetch("https://jobportalmernbackend.vercel.app/getjobs");
+        const response = await fetch("http://localhost:4000/jobs/getjobs");
         if (!response.ok) {
           throw new Error("Failed to fetch jobs");
         }
         const data = await response.json();
-        setJobs(data); // Display all jobs   
+        setJobs(data); // Display all jobs
       } catch (err) {
         setError(err.message);
       } finally {
@@ -34,14 +39,17 @@ function Job() {
     return new Date(timestamp * 1000).toLocaleString(); // Convert to readable date
   };
 
-  if (loading) return <p className="text-center text-gray-600">Loading jobs...</p>;
+  if (loading)
+    return <p className="text-center text-gray-600">Loading jobs...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
       {/* Header with "View All" */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-        <h2 className="text-2xl sm:text-3xl font-bold">Recent Jobs Available</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold">
+          Recent Jobs Available
+        </h2>
         <p
           className="text-teal-600 underline cursor-pointer text-sm sm:text-base mt-2 sm:mt-0"
           onClick={() => navigate("/all-jobs")} // Navigate on click
@@ -49,7 +57,9 @@ function Job() {
           View All
         </p>
       </div>
-      <p className="text-gray-500 text-sm sm:text-base mb-4">Find your dream job now!</p>
+      <p className="text-gray-500 text-sm sm:text-base mb-4">
+        Find your dream job now!
+      </p>
 
       {/* Job Listings */}
       {jobs.length === 0 ? (
@@ -66,7 +76,9 @@ function Job() {
                 <span className="bg-green-100 text-green-600 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
                   {decodeMongoIdToTime(job._id)}
                 </span>
-                <h3 className="text-lg sm:text-xl font-semibold mt-2">{job.jobTitle}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mt-2">
+                  {job.jobTitle}
+                </h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   {job.company?.companyName || "Unknown Company"}
                 </p>
@@ -82,7 +94,8 @@ function Job() {
                     <FaDollarSign /> {job.salary || "Not Disclosed"}
                   </span>
                   <span className="flex items-center gap-1">
-                    <FaMapMarkerAlt /> {job.formattedAddress || "Location not available"}
+                    <FaMapMarkerAlt />{" "}
+                    {job.formattedAddress || "Location not available"}
                   </span>
                 </div>
               </div>

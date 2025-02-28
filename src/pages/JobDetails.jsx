@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEnvelope, faPhone, faComment, faMapMarkerAlt, faClock, faDollarSign, faBriefcase, faBuilding, faGraduationCap, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faEnvelope,
+  faPhone,
+  faComment,
+  faMapMarkerAlt,
+  faClock,
+  faDollarSign,
+  faBriefcase,
+  faBuilding,
+  faGraduationCap,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons";
 
 function JobDetails() {
   const { id } = useParams();
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jobportalmernbackend.vercel.app/getjobs/${id}`)
+    fetch(`http://localhost:4000/jobs/getjobs/${id}`)
       .then((res) => res.json())
       .then((data) => setJob(data))
       .catch((error) => console.error("Error fetching job details:", error));
@@ -17,18 +29,19 @@ function JobDetails() {
   if (!job) {
     return <div>Loading...</div>;
   }
-  
 
   return (
     <div className="max-w-8xl mx-auto p-6">
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 bg-white p-6 rounded-lg ">
-         
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold">{job.jobTitle}</h2>
               <p className="text-gray-600">
-                <FontAwesomeIcon icon={faBuilding} className="mr-2 text-gray-500" />
+                <FontAwesomeIcon
+                  icon={faBuilding}
+                  className="mr-2 text-gray-500"
+                />
                 {job.company.companyName}
               </p>
             </div>
@@ -36,7 +49,10 @@ function JobDetails() {
 
           <div className="flex flex-wrap gap-4 text-gray-500 mt-4">
             <p>
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2 text-gray-500" />
+              <FontAwesomeIcon
+                icon={faBriefcase}
+                className="mr-2 text-gray-500"
+              />
               {job.category}
             </p>
             <p>
@@ -44,11 +60,17 @@ function JobDetails() {
               {job.jobType}
             </p>
             <p>
-              <FontAwesomeIcon icon={faDollarSign} className="mr-2 text-gray-500" />
+              <FontAwesomeIcon
+                icon={faDollarSign}
+                className="mr-2 text-gray-500"
+              />
               ${job.salary}
             </p>
             <p>
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-gray-500" />
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="mr-2 text-gray-500"
+              />
               {job.formattedAddress}
             </p>
           </div>
@@ -78,31 +100,52 @@ function JobDetails() {
 
             <div className="space-y-3 text-gray-700">
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faUserTie} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faUserTie}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Job Title:</strong> {job.jobTitle}
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faClock} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faClock}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Job Type:</strong> {job.jobType}
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faBriefcase} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Category:</strong> {job.category}
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faUserTie} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faUserTie}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Experience:</strong> {job.experience} Years
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faGraduationCap} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faGraduationCap}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Degree:</strong> {job.degree}
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faDollarSign} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faDollarSign}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Offered Salary:</strong> ${job.salary}
               </p>
               <p className="flex items-center">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-teal-500" />
+                <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  className="mr-2 text-teal-500"
+                />
                 <strong>Location:</strong> {job.formattedAddress}
               </p>
             </div>
@@ -123,7 +166,10 @@ function JobDetails() {
 
               <div className="space-y-3">
                 <div className="flex items-center bg-white p-2 rounded-lg border">
-                  <FontAwesomeIcon icon={faUser} className="text-gray-500 mr-2" />
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    className="text-gray-500 mr-2"
+                  />
                   <input
                     type="text"
                     placeholder="Full name"
@@ -132,7 +178,10 @@ function JobDetails() {
                 </div>
 
                 <div className="flex items-center bg-white p-2 rounded-lg border">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-gray-500 mr-2" />
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="text-gray-500 mr-2"
+                  />
                   <input
                     type="email"
                     placeholder="Email Address"
@@ -141,7 +190,10 @@ function JobDetails() {
                 </div>
 
                 <div className="flex items-center bg-white p-2 rounded-lg border">
-                  <FontAwesomeIcon icon={faPhone} className="text-gray-500 mr-2" />
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    className="text-gray-500 mr-2"
+                  />
                   <input
                     type="tel"
                     placeholder="Phone Number"
@@ -150,7 +202,10 @@ function JobDetails() {
                 </div>
 
                 <div className="flex items-start bg-white p-2 rounded-lg border">
-                  <FontAwesomeIcon icon={faComment} className="text-gray-500 mr-2 mt-1" />
+                  <FontAwesomeIcon
+                    icon={faComment}
+                    className="text-gray-500 mr-2 mt-1"
+                  />
                   <textarea
                     placeholder="Your Message"
                     className="w-full outline-none bg-transparent h-20 resize-none"
@@ -162,7 +217,6 @@ function JobDetails() {
                 </button>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

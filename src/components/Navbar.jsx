@@ -27,8 +27,7 @@ function Navbar() {
         </ul>
       </div>
       <div className='flex items-center'>
-        <button>Login</button>
-        <button className='bg-[#309689] px-4 py-2 rounded-lg ml-3' onClick={() => navigate('/postjob')} >Register</button>
+        <button className='bg-[#309689] px-4 py-2 rounded-lg ml-3' onClick={() => navigate('/login')} >Login</button>
       </div>
     </div>
   );
