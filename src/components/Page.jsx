@@ -4,7 +4,16 @@ function HomePage() {
     return (
         <div>
             <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-gray-300 h-64 rounded-lg md:h-80"></div> 
+
+                <div
+                    className="relative bg-gray-300 h-64 rounded-lg md:h-80 bg-cover bg-center"
+                    style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaZfOPpD8TES9LYS2S_KF057K5ptvLP479cQ&s')" }}
+                >
+                    {/* Blur overlay */}
+                    <div className="absolute inset-0 bg-black/30 backdrop-blur-md rounded-lg"></div>
+                </div>
+
+
                 <div>
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                         Good Life Begins With <br /> A Good Company
@@ -40,12 +49,10 @@ function HomePage() {
             </div>
 
 
-            
+
             <div className="max-w-7xl mx-auto px-6 py-16">
-                <div
-                    className="relative bg-cover bg-center text-white p-10 rounded-lg flex flex-col justify-center items-start h-80 md:h-96"
-                    style={{ backgroundImage: "url('https://source.unsplash.com/1600x900/?business,success')" }}
-                >
+                <div className="relative text-white p-10 bg-black/10 backdrop-blur-lg rounded-lg flex flex-col justify-center items-start h-80 md:h-96 before:absolute before:inset-0 before:bg-cover before:bg-center before:blur-lg before:rounded-lg"
+                    style={{ backgroundImage: "url('https://img.freepik.com/premium-vector/news-concept-internet-tv-information-people-listen-reading-technology-media-update-modern-person-using-gadgets-multimedia-recent-vector-scene_543062-4012.jpg')" }}>
                     <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
                     <div className="relative z-10">
                         <h2 className="text-2xl md:text-3xl font-bold">
@@ -60,6 +67,7 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+
 
 
         </div>

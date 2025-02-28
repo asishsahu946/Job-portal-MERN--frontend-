@@ -18,7 +18,7 @@ const Testimonials = () => {
               </p>
               <div className="flex items-center mt-4">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src="https://t3.ftcdn.net/jpg/03/70/29/26/360_F_370292674_QS5nA0bJgyRD6VzYycTQdSWhhSHQJbQZ.jpg"
                   alt="Marco Kihn"
                   className="w-10 h-10 rounded-full mr-3"
                 />
@@ -39,7 +39,7 @@ const Testimonials = () => {
               </p>
               <div className="flex items-center mt-4">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCQuDq7TzuUGybaswyKXiF-rP4zQTAal940w&s"
                   alt="Kristin Hester"
                   className="w-10 h-10 rounded-full mr-3"
                 />
@@ -60,7 +60,7 @@ const Testimonials = () => {
               </p>
               <div className="flex items-center mt-4">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR28-fSgdPxfrUozj3LyC27jnRzmbhj4oIp0g&s"
                   alt="Zion Cisneros"
                   className="w-10 h-10 rounded-full mr-3"
                 />

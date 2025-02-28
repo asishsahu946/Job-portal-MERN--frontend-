@@ -5,7 +5,7 @@ const NewsBlogSection = () => {
         category: "News",
         date: "30 March 2024",
         title: "Revitalizing Workplace Morale: Innovative Tactics For Boosting Employee Engagement In 2024",
-        image: "https://", 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyMHt3IjQ-Q449PjGhDjpGVc9bs5vWYaInNQ&s", 
         link: "#",
       },
       {
@@ -13,7 +13,7 @@ const NewsBlogSection = () => {
         category: "Blog",
         date: "30 March 2024",
         title: "How To Avoid The Top Six Most Common Job Interview Mistakes",
-        image: "https://",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREXN-izYb6Xv5WMJAjyS98F3XARh75fRiX6Q&s",
         link: "#",
       },
     ];
