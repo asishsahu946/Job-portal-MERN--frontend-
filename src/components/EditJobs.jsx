@@ -21,7 +21,9 @@ export default function EditJobs() {
   useEffect(() => {
     const fetchJobData = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/jobs/getjobs/${jobId}`);
+        const response = await fetch(
+          `https://jobportalmernbackend.vercel.app/jobs/getjobs/${jobId}`
+        );
         if (response.ok) {
           const data = await response.json();
           setFormData({
@@ -76,27 +78,30 @@ export default function EditJobs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:4000/jobs/updatejobs/${jobId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          company: {
-            companyName: formData.companyName,
-            companyId: formData.companyId,
+      const response = await fetch(
+        `https://jobportalmernbackend.vercel.app/jobs/updatejobs/${jobId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
           },
-          jobTitle: formData.jobTitle,
-          category: formData.category,
-          jobType: formData.jobType,
-          salary: formData.salary,
-          formattedAddress: formData.formattedAddress,
-          skills: formData.skills.filter((skill) => skill.trim() !== ""),
-          description: formData.description,
-          experience: formData.experience,
-          degree: formData.degree,
-        }),
-      });
+          body: JSON.stringify({
+            company: {
+              companyName: formData.companyName,
+              companyId: formData.companyId,
+            },
+            jobTitle: formData.jobTitle,
+            category: formData.category,
+            jobType: formData.jobType,
+            salary: formData.salary,
+            formattedAddress: formData.formattedAddress,
+            skills: formData.skills.filter((skill) => skill.trim() !== ""),
+            description: formData.description,
+            experience: formData.experience,
+            degree: formData.degree,
+          }),
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
@@ -118,7 +123,9 @@ export default function EditJobs() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Job Title</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Job Title
+            </label>
             <input
               name="jobTitle"
               value={formData.jobTitle}
@@ -129,7 +136,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Company Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Company Name
+            </label>
             <input
               name="companyName"
               value={formData.companyName}
@@ -140,7 +149,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Company ID</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Company ID
+            </label>
             <input
               name="companyId"
               value={formData.companyId}
@@ -152,7 +163,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Category</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Category
+            </label>
             <input
               name="category"
               value={formData.category}
@@ -163,7 +176,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Job Type</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Job Type
+            </label>
             <select
               name="jobType"
               value={formData.jobType}
@@ -177,7 +192,9 @@ export default function EditJobs() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Salary</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Salary
+            </label>
             <input
               name="salary"
               value={formData.salary}
@@ -189,7 +206,9 @@ export default function EditJobs() {
             />
           </div>
           <div className="col-span-full">
-            <label className="block text-sm font-medium text-gray-700">Address</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Address
+            </label>
             <input
               name="formattedAddress"
               value={formData.formattedAddress}
@@ -200,7 +219,9 @@ export default function EditJobs() {
             />
           </div>
           <div className="col-span-full">
-            <label className="block text-sm font-medium text-gray-700">Skills</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Skills
+            </label>
             {formData.skills.map((skill, index) => (
               <input
                 key={index}
@@ -221,7 +242,9 @@ export default function EditJobs() {
             </button>
           </div>
           <div className="col-span-full">
-            <label className="block text-sm font-medium text-gray-700">Job Description</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Job Description
+            </label>
             <textarea
               name="description"
               value={formData.description}
@@ -233,7 +256,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Experience Required</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Experience Required
+            </label>
             <input
               name="experience"
               value={formData.experience}
@@ -244,7 +269,9 @@ export default function EditJobs() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Degree Required</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Degree Required
+            </label>
             <input
               name="degree"
               value={formData.degree}

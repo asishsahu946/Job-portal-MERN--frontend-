@@ -20,7 +20,7 @@ function JobDetails() {
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/jobs/getjobs/${id}`)
+    fetch(`https://jobportalmernbackend.vercel.app/jobs/getjobs/${id}`)
       .then((res) => res.json())
       .then((data) => setJob(data))
       .catch((error) => console.error("Error fetching job details:", error));

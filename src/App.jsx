@@ -10,6 +10,8 @@ import Login from "./components/Login";
 import Admin from './pages/Admin';
 import ProtectedRoute from "./components/ProtectedRoutes"; // Import the ProtectedRoute component
 import EditJobs from './components/EditJobs'
+import AboutUs from "./pages/AboutUs";
+import ContactUs from './pages/ContactUs'
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/jobdetails/:id" element={<JobDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/aboutus" element={<AboutUs/>} />
+        <Route path="/contactus" element={<ContactUs/>} />
 
         {/* Protect /admin route */}
         <Route element={<ProtectedRoute />}>

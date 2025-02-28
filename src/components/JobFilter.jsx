@@ -28,7 +28,9 @@ function JobFilter() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:4000/jobs/getjobs");
+        const response = await fetch(
+          "https://jobportalmernbackend.vercel.app/jobs/getjobs"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch jobs");
         }
@@ -86,13 +88,16 @@ function JobFilter() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/jobs/filterjobs", {
-        method: "POST",
-        body: JSON.stringify(filters),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://jobportalmernbackend.vercel.app/jobs/filterjobs",
+        {
+          method: "POST",
+          body: JSON.stringify(filters),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) throw new Error("Network response was not ok");
 
@@ -265,9 +270,7 @@ function JobFilter() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 ">
             {/* Header with "View All" */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-              <h2 className="text-2xl sm:text-3xl font-bold">
-                All Jobs
-              </h2>
+              <h2 className="text-2xl sm:text-3xl font-bold">All Jobs</h2>
             </div>
             <p className="text-gray-500 text-sm sm:text-base mb-4">
               Find your dream job now!

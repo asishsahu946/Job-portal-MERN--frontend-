@@ -15,12 +15,14 @@ function Admin() {
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage] = useState(10); // Number of jobs per page
   const navigate = useNavigate(); // Navigation hook
-  const {id: userId} = useParams();
+  const { id: userId } = useParams();
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/jobs/userjobs/${userId}`);
+        const response = await fetch(
+          `https://jobportalmernbackend.vercel.app/jobs/userjobs/${userId}`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch jobs");
         }
@@ -40,7 +42,7 @@ function Admin() {
   const handleLogout = async () => {
     try {
       // Send a request to the backend to logout (optional)
-      await fetch("http://localhost:4000/users/logout", {
+      await fetch("https://jobportalmernbackend.vercel.app/users/logout", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // Send the token for validation
@@ -59,7 +61,7 @@ function Admin() {
 
   // Delete job function
   function handleDeleteJob(jobId) {
-    fetch(`http://localhost:4000/jobs/deletejobs/${jobId}`, {
+    fetch(`https://jobportalmernbackend.vercel.app/jobs/deletejobs/${jobId}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -112,127 +114,126 @@ function Admin() {
       <div className="bg-black py-10 text-white text-center">
         <h1 className="text-3xl font-bold">User Page</h1>
       </div>
- <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 ">
-      {/* Header with "View All" and Logout Button */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-        <h2 className="text-2xl sm:text-3xl font-bold">
-          All Jobs List
-        </h2>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => navigate(`/postjob/${userId}`)}
-            className="px-4 py-2 bg-green-600 text-white rounded-md text-sm sm:text-base hover:bg-green-700"
-          >
-            Post Jobs
-          </button>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white rounded-md text-sm sm:text-base hover:bg-red-700"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
-
-      {/* Job Listings */}
-      {jobs.length === 0 ? (
-        <p className="text-center text-gray-500">No jobs available</p>
-      ) : (
-        <div className="grid gap-4">
-          {currentJobs.map((job) => (
-            <div
-              key={job._id}
-              className="p-4 sm:p-6 border rounded-lg shadow-lg bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center"
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 ">
+        {/* Header with "View All" and Logout Button */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold">All Jobs List</h2>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => navigate(`/postjob/${userId}`)}
+              className="px-4 py-2 bg-green-600 text-white rounded-md text-sm sm:text-base hover:bg-green-700"
             >
-              {/* Left Section */}
-              <div className="w-full sm:w-auto">
-                <span className="bg-green-100 text-green-600 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
-                  {decodeMongoIdToTime(job._id)}
-                </span>
-                <h3 className="text-lg sm:text-xl font-semibold mt-2">
-                  {job.jobTitle}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {job.company?.companyName || "Unknown Company"}
-                </p>
+              Post Jobs
+            </button>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-600 text-white rounded-md text-sm sm:text-base hover:bg-red-700"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
 
-                {/* Job Details */}
-                <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-gray-500 text-xs sm:text-sm">
-                  <span className="flex items-center gap-1">
-                    <FaBriefcase /> {job.category || "Unknown"}
+        {/* Job Listings */}
+        {jobs.length === 0 ? (
+          <p className="text-center text-gray-500">No jobs available</p>
+        ) : (
+          <div className="grid gap-4">
+            {currentJobs.map((job) => (
+              <div
+                key={job._id}
+                className="p-4 sm:p-6 border rounded-lg shadow-lg bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center"
+              >
+                {/* Left Section */}
+                <div className="w-full sm:w-auto">
+                  <span className="bg-green-100 text-green-600 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
+                    {decodeMongoIdToTime(job._id)}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <FaClock /> {job.jobType || "Full Time"}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <FaDollarSign /> {job.salary || "Not Disclosed"}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <FaMapMarkerAlt />{" "}
-                    {job.formattedAddress || "Location not available"}
-                  </span>
+                  <h3 className="text-lg sm:text-xl font-semibold mt-2">
+                    {job.jobTitle}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {job.company?.companyName || "Unknown Company"}
+                  </p>
+
+                  {/* Job Details */}
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-gray-500 text-xs sm:text-sm">
+                    <span className="flex items-center gap-1">
+                      <FaBriefcase /> {job.category || "Unknown"}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaClock /> {job.jobType || "Full Time"}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaDollarSign /> {job.salary || "Not Disclosed"}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaMapMarkerAlt />{" "}
+                      {job.formattedAddress || "Location not available"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right Section */}
+                <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-0">
+                  <button
+                    className="px-3 sm:px-4 py-1 sm:py-2 bg-blue-600 text-white rounded-md text-sm sm:text-base"
+                    onClick={() => navigate(`/editjob/${job._id}`)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="px-3 sm:px-4 py-1 sm:py-2 bg-red-600 text-white rounded-md text-sm sm:text-base"
+                    onClick={() => handleDeleteJob(job._id)}
+                  >
+                    Delete
+                  </button>
+                  <button className="text-gray-500 hover:text-gray-700 text-sm sm:text-base">
+                    <FaBookmark />
+                  </button>
                 </div>
               </div>
+            ))}
+          </div>
+        )}
 
-              {/* Right Section */}
-              <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-0">
+        {/* Pagination Controls */}
+        <div className="flex justify-center mt-6">
+          <nav>
+            <ul className="flex list-style-none gap-2">
+              <li>
                 <button
-                  className="px-3 sm:px-4 py-1 sm:py-2 bg-blue-600 text-white rounded-md text-sm sm:text-base"
-                  onClick={() => navigate(`/editjob/${job._id}`)}
+                  onClick={prevPage}
+                  disabled={currentPage === 1}
+                  className={`px-4 py-2 rounded-md ${
+                    currentPage === 1
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
+                  }`}
                 >
-                  Edit
+                  Previous
                 </button>
+              </li>
+              <li>
                 <button
-                  className="px-3 sm:px-4 py-1 sm:py-2 bg-red-600 text-white rounded-md text-sm sm:text-base"
-                  onClick={() => handleDeleteJob(job._id)}
+                  onClick={nextPage}
+                  disabled={
+                    currentPage === Math.ceil(jobs.length / jobsPerPage)
+                  }
+                  className={`px-4 py-2 rounded-md ${
+                    currentPage === Math.ceil(jobs.length / jobsPerPage)
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
+                  }`}
                 >
-                  Delete
+                  Next
                 </button>
-                <button className="text-gray-500 hover:text-gray-700 text-sm sm:text-base">
-                  <FaBookmark />
-                </button>
-              </div>
-            </div>
-          ))}
+              </li>
+            </ul>
+          </nav>
         </div>
-      )}
-
-      {/* Pagination Controls */}
-      <div className="flex justify-center mt-6">
-        <nav>
-          <ul className="flex list-style-none gap-2">
-            <li>
-              <button
-                onClick={prevPage}
-                disabled={currentPage === 1}
-                className={`px-4 py-2 rounded-md ${
-                  currentPage === 1
-                    ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700 text-white"
-                }`}
-              >
-                Previous
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={nextPage}
-                disabled={currentPage === Math.ceil(jobs.length / jobsPerPage)}
-                className={`px-4 py-2 rounded-md ${
-                  currentPage === Math.ceil(jobs.length / jobsPerPage)
-                    ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700 text-white"
-                }`}
-              >
-                Next
-              </button>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
-    </div>
-   
   );
 }
 

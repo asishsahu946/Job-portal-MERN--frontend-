@@ -14,9 +14,7 @@ const HeroSection = () => {
           <p className="text-gray-300 mt-4">
             Connecting Talent with Opportunity: Your Gateway to Career Success
           </p>
-
-          {/* Search Bar */}
-          <div className="mt-10 flex flex-col md:flex-row justify-center max-w-[900px] mx-auto">
+          {/* <div className="mt-10 flex flex-col md:flex-row justify-center max-w-[900px] mx-auto">
             <input
               type="text"
               placeholder="Job Title or Company"
@@ -26,20 +24,20 @@ const HeroSection = () => {
               className="w-full md:w-1/4 px-4 py-3 text-gray-900 border border-gray-300"
             >
               <option>Select Location</option>
-              <option>New York</option>
-              <option>San Francisco</option>
+              <option>Phulbani</option>
+              <option>Kolkata</option>
             </select>
             <select
               className="w-full md:w-1/4 px-4 py-3 text-gray-900 border border-gray-300"
             >
               <option>Select Category</option>
-              <option>Engineering</option>
-              <option>Marketing</option>
+              <option>Web Development</option>
+              <option>Software</option>
             </select>
             <button className="bg-[#31c4ae] px-6 py-3 text-white hover:bg-green-600 md:rounded-r-md">
               Search Job
             </button>
-          </div>
+          </div> */}
 
           {/* Statistics */}
           <div className="mt-16 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12">

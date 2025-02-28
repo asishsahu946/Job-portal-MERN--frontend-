@@ -23,11 +23,14 @@ function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/users/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
-      });
+      const response = await fetch(
+        "https://jobportalmernbackend.vercel.app/users/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -50,10 +53,16 @@ function Register() {
         <Typography className="mb-1 text-gray-600 font-normal text-[18px]">
           Enter your Name, email, and password to Register
         </Typography>
-        <form onSubmit={handleRegister} className="mx-auto max-w-[24rem] text-left">
+        <form
+          onSubmit={handleRegister}
+          className="mx-auto max-w-[24rem] text-left"
+        >
           <div className="mb-6">
             <label htmlFor="name">
-              <Typography variant="small" className="mb-2 block font-medium text-gray-900">
+              <Typography
+                variant="small"
+                className="mb-2 block font-medium text-gray-900"
+              >
                 Your Name
               </Typography>
             </label>
@@ -72,7 +81,10 @@ function Register() {
           </div>
           <div className="mb-6">
             <label htmlFor="email">
-              <Typography variant="small" className="mb-2 block font-medium text-gray-900">
+              <Typography
+                variant="small"
+                className="mb-2 block font-medium text-gray-900"
+              >
                 Your Email
               </Typography>
             </label>
@@ -91,7 +103,10 @@ function Register() {
           </div>
           <div className="mb-6">
             <label htmlFor="password">
-              <Typography variant="small" className="mb-2 block font-medium text-gray-900">
+              <Typography
+                variant="small"
+                className="mb-2 block font-medium text-gray-900"
+              >
                 Create Password
               </Typography>
             </label>
@@ -105,18 +120,39 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
               icon={
                 <i onClick={togglePasswordVisibility}>
-                  {passwordShown ? <EyeIcon className="h-5 w-5" /> : <EyeSlashIcon className="h-5 w-5" />}
+                  {passwordShown ? (
+                    <EyeIcon className="h-5 w-5" />
+                  ) : (
+                    <EyeSlashIcon className="h-5 w-5" />
+                  )}
                 </i>
               }
             />
           </div>
-          {error && <Typography color="red" className="mb-4">{error}</Typography>}
-          <Button type="submit" color="gray" size="lg" className="mt-6" fullWidth>
+          {error && (
+            <Typography color="red" className="mb-4">
+              {error}
+            </Typography>
+          )}
+          <Button
+            type="submit"
+            color="gray"
+            size="lg"
+            className="mt-6"
+            fullWidth
+          >
             Register
           </Button>
-          <Typography variant="small" color="gray" className="!mt-4 text-center font-normal">
+          <Typography
+            variant="small"
+            color="gray"
+            className="!mt-4 text-center font-normal"
+          >
             Already Registered?{" "}
-            <span onClick={() => navigate("/login")} className="font-medium text-gray-900 cursor-pointer">
+            <span
+              onClick={() => navigate("/login")}
+              className="font-medium text-gray-900 cursor-pointer"
+            >
               Sign In
             </span>
           </Typography>

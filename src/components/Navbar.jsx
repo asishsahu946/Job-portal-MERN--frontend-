@@ -19,10 +19,10 @@ function Navbar() {
             <Link className={location.pathname === '/jobs' ? 'text-white' : ''} to="/jobs">Jobs</Link>
           </li>
           <li>
-            <Link className={location.pathname === '/about' ? 'text-white' : ''} to="/about">About Us</Link>
+            <Link className={location.pathname === '/aboutus' ? 'text-white' : ''} to="/aboutus">About Us</Link>
           </li>
           <li>
-            <Link className={location.pathname === '/contact' ? 'text-white' : ''} to="/contact">Contact Us</Link>
+            <Link className={location.pathname === '/contactus' ? 'text-white' : ''} to="/contactus">Contact Us</Link>
           </li>
         </ul>
       </div>
